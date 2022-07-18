@@ -16,7 +16,7 @@ import utilities.BaseClass;
 public class LoginPageTestClass {
 	
 	WebDriver driver;
-	LoginPage lp;
+	LoginPage loginPage;
 	BaseClass base;
 	@BeforeTest
 
@@ -35,13 +35,13 @@ public class LoginPageTestClass {
 	@Test(priority=0)
 	public void userLoggedIn() throws Exception {
 		
-		lp.login();
+		loginPage.login();
 	}
 	
 	@Test(priority=1)
 	public void verifyThatUserLoggedInSuccessfully() throws Exception {
 		
-		String customerName = lp.loginSuccessfully();
+		String customerName = loginPage.loginSuccessfully();
 		
 		System.out.println("Account Holder Name = "+customerName);
 		
@@ -51,7 +51,7 @@ public class LoginPageTestClass {
 	@Test(priority=2)
 	public void verifyThatUserCanOpenANewAccount() throws Exception{
 		
-		String accountOpeningMessage = lp.openANewAccount();
+		String accountOpeningMessage = loginPage.openANewAccount();
 		System.out.println(accountOpeningMessage);
 		
 		Assert.assertTrue(accountOpeningMessage.contains("Congratulations"));
@@ -60,7 +60,7 @@ public class LoginPageTestClass {
 	@Test(priority=3)
 	public void verifyThatTheNewAccountNumberIsDisplayed() throws Exception {
 		
-		String accountNumber = lp.getNewAccountNumber();
+		String accountNumber = loginPage.getNewAccountNumber();
 		
 		System.out.println("New Account Number is :"+accountNumber);
 		
@@ -69,7 +69,7 @@ public class LoginPageTestClass {
 	
 	@Test(priority=4)
 	public void verifyTotalAmountWithTheUser()throws Exception{
-		String totalAmount=lp.verifyTotalAmountInAccountsOverview();
+		String totalAmount=loginPage.verifyTotalAmountInAccountsOverview();
 		
 		System.out.println("Total Amount With User :"+totalAmount);
 	}
@@ -77,19 +77,33 @@ public class LoginPageTestClass {
 	@Test(priority=5)
 	public void getTheTotalTransactionsInADateRange()throws Exception{
 		
-		String transactionTable= lp.findTheTotalTransactionsInATimeRange();
+		String transactionTable= loginPage.findTheTotalTransactionsInATimeRange();
 		
 		System.out.println("Transaction Table is displayed :"+transactionTable);
 	}
 	
 	@Test(priority=6)
 	public void verifyThatTheUserCanVerifyForLoan()throws Exception{
-		lp.applyForLoan();
+		loginPage.applyForLoan();
+	}
+	
+	@Test(priority =7)
+	public void verifyTheLoanStatus()throws Exception{
+		loginPage.loanApprovalConfirmation();
+	}
+	
+	@Test(priority=8)
+	public void clickOnLogOutLink() throws Exception {
+		loginPage.logOut();
 	}
 	
 	@AfterMethod
 	public void takeScreenshotOnFailure(ITestResult result)throws Exception{
 		base.captureScreenshot(result);
 	}
+	
+	public void tearDown() throws Exception {
+	driver.quit();
 
+}
 }

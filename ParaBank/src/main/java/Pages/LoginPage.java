@@ -128,6 +128,21 @@ public class LoginPage extends BaseClass {
 		driver.findElement(By.xpath(pro.getProperty("loanAmount"))).sendKeys(pro.getProperty("LoanAmount"));
 		driver.findElement(By.xpath(pro.getProperty("downPayment"))).sendKeys(pro.getProperty("DownPayment"));
 		lp.clickOnElement(By.xpath(pro.getProperty("applyNowButton")));
+		driver.findElement(By.xpath(pro.getProperty("loanProvider"))).getText();
+		
+	}
+	
+	public void loanApprovalConfirmation()throws Exception{
+		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
+
+		FileInputStream fis = new FileInputStream(src);
+
+		Properties pro = new Properties();
+
+		pro.load(fis);
+
+		driver.findElement(By.xpath(pro.getProperty("loanApprovalConfirmation"))).getText();
+		
 	}
 	
 	public void logOut()throws Exception{

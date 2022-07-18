@@ -17,26 +17,6 @@ import utilities.BaseClass;
 public class RegistrationPage extends BaseClass {
 
 	static WebDriver driver;
-	
-	//RegistrationPage reg = new RegistrationPage(driver);
-	// By register = By.xpath("//*[text()='Register']");
-//	By registerPageTitle = By.xpath("//h1[text()='Signing up is easy!']");
-//	By firstName = By.id("customer.firstName");
-//	By lastName = By.id("customer.lastName");
-//	By address = By.id("customer.address.street");
-//	By city = By.id("customer.address.city");
-//	By state = By.id("customer.address.state");
-//	By zipCode = By.id("customer.address.zipCode");
-//	By phoneNumber = By.id("customer.phoneNumber");
-//	By ssn = By.id("customer.ssn");
-//	By userName = By.id("customer.username");
-//	By password = By.id("customer.password");
-//	By confirm = By.id("repeatedPassword");
-//	By submitButton = By.xpath("(//input[@type='submit'])[2]");
-//	By registeredSuccessfully = By.xpath("//p[text()='Your account was created successfully. You are now logged in.']");
-	// By logOut = By.xpath("//*[text()='Log Out']");
-	
-	
 
 	public RegistrationPage(WebDriver driver) {
 
@@ -51,7 +31,7 @@ public class RegistrationPage extends BaseClass {
 		Properties pro = new Properties();
 
 		pro.load(fis);
-		
+
 		Thread.sleep(60000);
 
 		clickOnElement(By.xpath(pro.getProperty("register")));
@@ -90,8 +70,6 @@ public class RegistrationPage extends BaseClass {
 		driver.findElement(By.xpath(pro.getProperty("submitButton"))).click();
 
 	}
-
-	
 
 	public void verifyThatUserRegisteredSuccessfully() throws Exception {
 		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");

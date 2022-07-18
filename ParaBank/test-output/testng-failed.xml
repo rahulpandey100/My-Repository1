@@ -3,17 +3,21 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.RegistrationPageTestClass">
+      <class name="test.LoginPageTestClass">
         <methods>
-          <include name="userClicksOnLogoutButton"/>
-          <include name="tearDown"/>
-          <include name="enterUserDetails"/>
-          <include name="verifyThatTheUserIsOnRegistrationPage"/>
-          <include name="verifyUserRegisteredSuccessfully"/>
+          <include name="userLoggedIn"/>
+          <include name="verifyThatTheNewAccountNumberIsDisplayed"/>
+          <include name="verifyTheLoanStatus"/>
+          <include name="verifyThatTheUserCanVerifyForLoan"/>
+          <include name="clickOnLogOutLink"/>
+          <include name="verifyThatUserCanOpenANewAccount"/>
+          <include name="takeScreenshotOnFailure"/>
+          <include name="getTheTotalTransactionsInADateRange"/>
+          <include name="verifyThatUserLoggedInSuccessfully"/>
           <include name="setup"/>
-          <include name="clickOnRegister"/>
+          <include name="verifyTotalAmountWithTheUser"/>
         </methods>
-      </class> <!-- test.RegistrationPageTestClass -->
+      </class> <!-- test.LoginPageTestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,7 +1,5 @@
 package test;
 
-
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -18,13 +16,11 @@ import org.testng.annotations.Test;
 import Pages.RegistrationPage;
 import utilities.BaseClass;
 
-
 public class RegistrationPageTestClass {
 
 	WebDriver driver;
 	RegistrationPage reg;
 	BaseClass base;
-	
 
 	@BeforeTest
 
@@ -37,23 +33,15 @@ public class RegistrationPageTestClass {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 		driver.get("https://parabank.parasoft.com/parabank/index.htm");
-		
 
 	}
-	
+
 	@Test(priority = 0)
 	public void clickOnRegister() throws Exception {
 
-		
-			//reg=new RegistrationPage(driver);
-			
-				reg.clickOnRegisterOnHomePage();
-		
-			
-			
-		}
-		
-	
+		reg.clickOnRegisterOnHomePage();
+
+	}
 
 	@Test(priority = 1)
 	public void verifyThatTheUserIsOnRegistrationPage() throws Exception {
@@ -66,24 +54,23 @@ public class RegistrationPageTestClass {
 	public void enterUserDetails() throws IOException {
 		reg.readProperty();
 	}
-	
+
 	@Test(priority = 3)
-	public void verifyUserRegisteredSuccessfully()throws Exception {
+	public void verifyUserRegisteredSuccessfully() throws Exception {
 		reg.verifyThatUserRegisteredSuccessfully();
 	}
-	
+
 	@Test(priority = 4)
 	public void userClicksOnLogoutButton() throws Exception {
-		
+
 		reg.clickOnlogOutButton();
 	}
-	
-//	@AfterMethod
-//	public void takeScreenshotOnFailure(ITestResult result)throws Exception{
-//		base.captureScreenshot(result);
-//	}
 
-	
+	@AfterMethod
+	public void takeScreenshotOnFailure(ITestResult result) throws Exception {
+		base.captureScreenshot(result);
+	}
+
 	@AfterTest
 	public void tearDown() {
 		driver.quit();
