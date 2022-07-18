@@ -14,10 +14,11 @@ import Pages.LoginPage;
 import utilities.BaseClass;
 
 public class LoginPageTestClass {
-	
+
 	WebDriver driver;
 	LoginPage loginPage;
 	BaseClass base;
+
 	@BeforeTest
 
 	public void setup() {
@@ -31,79 +32,85 @@ public class LoginPageTestClass {
 		driver.get("https://parabank.parasoft.com/parabank/index.htm");
 
 	}
-	
-	@Test(priority=0)
+
+	@Test(priority = 0)
 	public void userLoggedIn() throws Exception {
-		
+
 		loginPage.login();
 	}
-	
-	@Test(priority=1)
+
+	@Test(priority = 1)
 	public void verifyThatUserLoggedInSuccessfully() throws Exception {
-		
+
 		String customerName = loginPage.loginSuccessfully();
-		
-		System.out.println("Account Holder Name = "+customerName);
-		
+
+		System.out.println("Account Holder Name = " + customerName);
+
 		Assert.assertTrue(customerName.contains("Welcome"));
 	}
-	
-	@Test(priority=2)
-	public void verifyThatUserCanOpenANewAccount() throws Exception{
-		
+
+	@Test(priority = 2)
+	public void verifyThatUserCanOpenANewAccount() throws Exception {
+
 		String accountOpeningMessage = loginPage.openANewAccount();
 		System.out.println(accountOpeningMessage);
-		
+
 		Assert.assertTrue(accountOpeningMessage.contains("Congratulations"));
 	}
-	
-	@Test(priority=3)
+
+	@Test(priority = 3)
 	public void verifyThatTheNewAccountNumberIsDisplayed() throws Exception {
-		
+
 		String accountNumber = loginPage.getNewAccountNumber();
-		
-		System.out.println("New Account Number is :"+accountNumber);
-		
-		
+
+		System.out.println("New Account Number is :" + accountNumber);
+
 	}
-	
-	@Test(priority=4)
-	public void verifyTotalAmountWithTheUser()throws Exception{
-		String totalAmount=loginPage.verifyTotalAmountInAccountsOverview();
-		
-		System.out.println("Total Amount With User :"+totalAmount);
+
+	@Test(priority = 4)
+	public void verifyTotalAmountWithTheUser() throws Exception {
+		String totalAmount = loginPage.verifyTotalAmountInAccountsOverview();
+
+		System.out.println("Total Amount With User :" + totalAmount);
 	}
-	
-	@Test(priority=5)
-	public void getTheTotalTransactionsInADateRange()throws Exception{
-		
-		String transactionTable= loginPage.findTheTotalTransactionsInATimeRange();
-		
-		System.out.println("Transaction Table is displayed :"+transactionTable);
+
+	@Test(priority = 5)
+	public void getTheTotalTransactionsInADateRange() throws Exception {
+
+		String transactionTable = loginPage.findTheTotalTransactionsInATimeRange();
+
+		System.out.println("Transaction Table is displayed :" + transactionTable);
 	}
-	
-	@Test(priority=6)
-	public void verifyThatTheUserCanVerifyForLoan()throws Exception{
-		loginPage.applyForLoan();
+
+	@Test(priority = 6)
+	public void verifyThatTheUserCanVerifyForLoan() throws Exception {
+		String loanApprovingOrganisation = loginPage.applyForLoan();
+		System.out.println("Loan Provider :" + loanApprovingOrganisation);
+
+		Assert.assertTrue(loanApprovingOrganisation.equalsIgnoreCase("Wealth Securities Dynamic Loans (WSDL)"));
 	}
-	
-	@Test(priority =7)
-	public void verifyTheLoanStatus()throws Exception{
-		loginPage.loanApprovalConfirmation();
+
+	@Test(priority = 7)
+	public void verifyTheLoanStatus() throws Exception {
+		String loanApprovalMessage = loginPage.loanApprovalConfirmation();
+
+		System.out.println("Loan approval staus :" + loanApprovalMessage);
+
+		Assert.assertTrue(loanApprovalMessage.equalsIgnoreCase("Congratulations, your loan has been approved."));
 	}
-	
-	@Test(priority=8)
+
+	@Test(priority = 8)
 	public void clickOnLogOutLink() throws Exception {
 		loginPage.logOut();
 	}
-	
+
 	@AfterMethod
-	public void takeScreenshotOnFailure(ITestResult result)throws Exception{
+	public void takeScreenshotOnFailure(ITestResult result) throws Exception {
 		base.captureScreenshot(result);
 	}
-	
-	public void tearDown() throws Exception {
-	driver.quit();
 
-}
+	public void tearDown() throws Exception {
+		driver.quit();
+
+	}
 }

@@ -115,7 +115,7 @@ public class LoginPage extends BaseClass {
 		return driver.findElement(By.xpath(pro.getProperty("getTransactionTable"))).getText();
 	}
 
-	public void applyForLoan() throws Exception {
+	public String applyForLoan() throws Exception {
 		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
 
 		FileInputStream fis = new FileInputStream(src);
@@ -128,11 +128,11 @@ public class LoginPage extends BaseClass {
 		driver.findElement(By.xpath(pro.getProperty("loanAmount"))).sendKeys(pro.getProperty("LoanAmount"));
 		driver.findElement(By.xpath(pro.getProperty("downPayment"))).sendKeys(pro.getProperty("DownPayment"));
 		lp.clickOnElement(By.xpath(pro.getProperty("applyNowButton")));
-		driver.findElement(By.xpath(pro.getProperty("loanProvider"))).getText();
+		return driver.findElement(By.xpath(pro.getProperty("loanProvider"))).getText();
 		
 	}
 	
-	public void loanApprovalConfirmation()throws Exception{
+	public String loanApprovalConfirmation()throws Exception{
 		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
 
 		FileInputStream fis = new FileInputStream(src);
@@ -141,7 +141,7 @@ public class LoginPage extends BaseClass {
 
 		pro.load(fis);
 
-		driver.findElement(By.xpath(pro.getProperty("loanApprovalConfirmation"))).getText();
+		return driver.findElement(By.xpath(pro.getProperty("loanApprovalConfirmation"))).getText();
 		
 	}
 	
