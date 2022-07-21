@@ -1,0 +1,45 @@
+Poor folder structure
+Poor naming of project
+It is not making sense that what does Parabank, repository, src are doing
+
+
+TestData Properties
+
+- data set is poor
+- only checking for psoitive cases, what about negative cases
+- properties file should not contain locators
+
+
+Test
+
+-HomePageTest,Login and Registration
+    - setup should be a part of properties files
+    - You are repeating this in all tests, not a good approach
+    - poor variable naming
+    - rather than using sysout, you should use logging 
+    - setup and tear down should be part of base class
+
+    - what does lp.login doing? how you are verifing that you are logged in?
+    - verifyThatUserLoggedInSuccessfully() this function is having customer name and you are asserting it with text 'welcome' , not good.
+    - same for all other tests
+    - very poorly designed test cases
+    - you have created base class but did not use it properly? bad practise
+    
+Overall
+
+- Bad design
+- Poor variable naming
+- Poor folder structure
+- Poor test cases
+- Poor use of base class and properties file
+
+Next steps:
+
+- fix all variable namings 
+- fix folder structure
+- fix readme ( i have added comments there)
+- add manual cases in a file
+- fix all tests
+- add pending work
+
+

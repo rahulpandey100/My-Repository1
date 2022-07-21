@@ -20,7 +20,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-
+<!-- You should add reports, logging dependencies too -->
 	</dependencies>
 
 

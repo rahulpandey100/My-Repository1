@@ -1,5 +1,24 @@
-# My-Repository1
+# My-repository
+<!-- # <Title> 
+```UI automated E2E Test suite for Parabank```
 
+# Strategy used 
+- Approach
+- Language
+- Tools
+- Nature
+- Reporting
+- Logging
+
+# Prerequisites
+- write down dependencies to be used
+- write down versions you have used 
+
+# How to run test cases
+- write down how to run test cases
+
+# improvements 
+- write down possible improvements like CI/CD scope, how can you improve FW etc etc -->
 
 Project Title - ParaBank
 
