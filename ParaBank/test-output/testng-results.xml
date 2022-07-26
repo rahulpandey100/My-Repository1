@@ -1,21 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="8" failed="1" ignored="0" total="9" passed="0">
+<testng-results skipped="0" failed="3" ignored="0" total="9" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6524" started-at="2022-07-18T11:41:42Z" finished-at="2022-07-18T11:41:48Z">
+  <suite name="Default suite" duration-ms="103152" started-at="2022-07-26T10:54:22Z" finished-at="2022-07-26T10:56:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6524" started-at="2022-07-18T11:41:42Z" finished-at="2022-07-18T11:41:48Z">
+    <test name="Default test" duration-ms="103152" started-at="2022-07-26T10:54:22Z" finished-at="2022-07-26T10:56:05Z">
       <class name="test.LoginPageTestClass">
-        <test-method status="PASS" signature="setup()[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="setup" is-config="true" duration-ms="6455" started-at="2022-07-18T11:41:42Z" finished-at="2022-07-18T11:41:48Z">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="openBrowser" is-config="true" duration-ms="6084" started-at="2022-07-26T10:54:22Z" finished-at="2022-07-26T10:54:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="userLoggedIn()[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="userLoggedIn" duration-ms="8" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
+        </test-method> <!-- openBrowser -->
+        <test-method status="PASS" signature="userLoggedIn()[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="userLoggedIn" duration-ms="1524" started-at="2022-07-26T10:54:28Z" finished-at="2022-07-26T10:54:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLoggedIn -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="4" started-at="2022-07-26T10:54:30Z" finished-at="2022-07-26T10:54:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=userLoggedIn status=SUCCESS method=LoginPageTestClass.userLoggedIn()[pri:0, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="verifyThatUserLoggedInSuccessfully()[pri:1, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyThatUserLoggedInSuccessfully" duration-ms="28" started-at="2022-07-26T10:54:30Z" finished-at="2022-07-26T10:54:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatUserLoggedInSuccessfully -->
+        <test-method status="FAIL" signature="verifyThatUserCanOpenANewAccount()[pri:2, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyThatUserCanOpenANewAccount" duration-ms="30781" started-at="2022-07-26T10:54:30Z" finished-at="2022-07-26T10:55:00Z">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //p[text()='Congratulations, your account is now open.'] (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.userLoggedIn(LoginPageTestClass.java:38)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //p[text()='Congratulations, your account is now open.'] (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at Pages.LoginPage.openANewAccount(LoginPage.java:81)
+at test.LoginPageTestClass.verifyThatUserCanOpenANewAccount(LoginPageTestClass.java:52)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Congratulations, your account is now open.']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-2513UC9B', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RAHULP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa3458bd9e4a3f72238dca5e8dc36245
+*** Element info: {Using=xpath, value=//p[text()='Congratulations, your account is now open.']}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 27 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatUserCanOpenANewAccount -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-26T10:54:30Z" finished-at="2022-07-26T10:54:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyThatUserLoggedInSuccessfully status=SUCCESS method=LoginPageTestClass.verifyThatUserLoggedInSuccessfully()[pri:1, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="144" started-at="2022-07-26T10:55:00Z" finished-at="2022-07-26T10:55:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyThatUserCanOpenANewAccount status=FAILURE method=LoginPageTestClass.verifyThatUserCanOpenANewAccount()[pri:2, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="FAIL" signature="verifyThatTheNewAccountNumberIsDisplayed()[pri:3, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyThatTheNewAccountNumberIsDisplayed" duration-ms="30063" started-at="2022-07-26T10:55:01Z" finished-at="2022-07-26T10:55:31Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//a[@id='newAccountId']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-2513UC9B', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RAHULP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa3458bd9e4a3f72238dca5e8dc36245
+*** Element info: {Using=xpath, value=//a[@id='newAccountId']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@id='newAccountId']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-2513UC9B', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RAHULP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa3458bd9e4a3f72238dca5e8dc36245
+*** Element info: {Using=xpath, value=//a[@id='newAccountId']}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at Pages.LoginPage.getNewAccountNumber(LoginPage.java:88)
+at test.LoginPageTestClass.verifyThatTheNewAccountNumberIsDisplayed(LoginPageTestClass.java:61)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -43,285 +187,100 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- userLoggedIn -->
-        <test-method status="FAIL" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=userLoggedIn status=FAILURE method=LoginPageTestClass.userLoggedIn()[pri:0, instance:test.LoginPageTestClass@d4342c2] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="verifyThatUserLoggedInSuccessfully()[pri:1, instance:test.LoginPageTestClass@d4342c2]" name="verifyThatUserLoggedInSuccessfully" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyThatUserLoggedInSuccessfully -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="verifyThatUserCanOpenANewAccount()[pri:2, instance:test.LoginPageTestClass@d4342c2]" name="verifyThatUserCanOpenANewAccount" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyThatUserCanOpenANewAccount -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="verifyThatTheNewAccountNumberIsDisplayed()[pri:3, instance:test.LoginPageTestClass@d4342c2]" name="verifyThatTheNewAccountNumberIsDisplayed" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyThatTheNewAccountNumberIsDisplayed -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="136" started-at="2022-07-26T10:55:31Z" finished-at="2022-07-26T10:55:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyThatTheNewAccountNumberIsDisplayed status=FAILURE method=LoginPageTestClass.verifyThatTheNewAccountNumberIsDisplayed()[pri:3, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="getTheTotalTransactionsInADateRange()[pri:5, instance:test.LoginPageTestClass@d4342c2]" name="getTheTotalTransactionsInADateRange" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTheTotalTransactionsInADateRange -->
-        <test-method status="SKIP" signature="verifyTotalAmountWithTheUser()[pri:4, instance:test.LoginPageTestClass@d4342c2]" name="verifyTotalAmountWithTheUser" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method status="PASS" signature="verifyTotalAmountWithTheUser()[pri:4, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyTotalAmountWithTheUser" duration-ms="607" started-at="2022-07-26T10:55:31Z" finished-at="2022-07-26T10:55:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTotalAmountWithTheUser -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="1" started-at="2022-07-26T10:55:31Z" finished-at="2022-07-26T10:55:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTotalAmountWithTheUser status=SUCCESS method=LoginPageTestClass.verifyTotalAmountWithTheUser()[pri:4, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="verifyThatTheUserCanVerifyForLoan()[pri:6, instance:test.LoginPageTestClass@d4342c2]" name="verifyThatTheUserCanVerifyForLoan" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="PASS" signature="getTheTotalTransactionsInADateRange()[pri:5, instance:test.LoginPageTestClass@7cbd9d24]" name="getTheTotalTransactionsInADateRange" duration-ms="1029" started-at="2022-07-26T10:55:31Z" finished-at="2022-07-26T10:55:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTheTotalTransactionsInADateRange -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-26T10:55:32Z" finished-at="2022-07-26T10:55:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=getTheTotalTransactionsInADateRange status=SUCCESS method=LoginPageTestClass.getTheTotalTransactionsInADateRange()[pri:5, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="verifyThatTheUserCanApplyForLoan()[pri:6, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyThatTheUserCanApplyForLoan" duration-ms="1039" started-at="2022-07-26T10:55:32Z" finished-at="2022-07-26T10:55:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyThatTheUserCanApplyForLoan -->
+        <test-method status="FAIL" signature="verifyTheLoanStatus()[pri:7, instance:test.LoginPageTestClass@7cbd9d24]" name="verifyTheLoanStatus" duration-ms="30063" started-at="2022-07-26T10:55:33Z" finished-at="2022-07-26T10:56:03Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Congratulations, your loan has been approved.']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-2513UC9B', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RAHULP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa3458bd9e4a3f72238dca5e8dc36245
+*** Element info: {Using=xpath, value=//p[text()='Congratulations, your loan has been approved.']}]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Congratulations, your loan has been approved.']"}
+  (Session info: chrome=103.0.5060.134)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-2513UC9B', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RAHULP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56822}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: aa3458bd9e4a3f72238dca5e8dc36245
+*** Element info: {Using=xpath, value=//p[text()='Congratulations, your loan has been approved.']}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at Pages.LoginPage.loanApprovalConfirmation(LoginPage.java:134)
+at test.LoginPageTestClass.verifyTheLoanStatus(LoginPageTestClass.java:92)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
 at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
 at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
@@ -343,100 +302,51 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyThatTheUserCanVerifyForLoan -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method status="SKIP" signature="clickOnLogOutLink()[pri:8, instance:test.LoginPageTestClass@d4342c2]" name="clickOnLogOutLink" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickOnLogOutLink -->
-        <test-method status="SKIP" signature="verifyTheLoanStatus()[pri:7, instance:test.LoginPageTestClass@d4342c2]" name="verifyTheLoanStatus" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at test.LoginPageTestClass.takeScreenshotOnFailure(LoginPageTestClass.java:102)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
-at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
-at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTheLoanStatus -->
-        <test-method status="SKIP" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@d4342c2]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-18T11:41:48Z" finished-at="2022-07-18T11:41:48Z">
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-26T10:55:33Z" finished-at="2022-07-26T10:55:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyThatTheUserCanApplyForLoan status=SUCCESS method=LoginPageTestClass.verifyThatTheUserCanApplyForLoan()[pri:6, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="138" started-at="2022-07-26T10:56:03Z" finished-at="2022-07-26T10:56:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTheLoanStatus status=FAILURE method=LoginPageTestClass.verifyTheLoanStatus()[pri:7, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="clickOnLogOutLink()[pri:8, instance:test.LoginPageTestClass@7cbd9d24]" name="clickOnLogOutLink" duration-ms="847" started-at="2022-07-26T10:56:04Z" finished-at="2022-07-26T10:56:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickOnLogOutLink -->
+        <test-method status="PASS" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="takeScreenshotOnFailure" is-config="true" duration-ms="0" started-at="2022-07-26T10:56:04Z" finished-at="2022-07-26T10:56:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=clickOnLogOutLink status=SUCCESS method=LoginPageTestClass.clickOnLogOutLink()[pri:8, instance:test.LoginPageTestClass@7cbd9d24] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenshotOnFailure -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:test.LoginPageTestClass@7cbd9d24]" name="closeBrowser" is-config="true" duration-ms="625" started-at="2022-07-26T10:56:04Z" finished-at="2022-07-26T10:56:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
       </class> <!-- test.LoginPageTestClass -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -1,11 +1,10 @@
 package test;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestResult;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
@@ -17,56 +16,53 @@ import utilities.BaseClass;
 
 public class HomePageTestClass {
 
-	WebDriver driver;
-	HomePage hp;
-	BaseClass base;
+	public HomePageTestClass() {
 
-	@BeforeTest
-
-	public void setup() {
-
-		System.setProperty("webdriver.chrome.driver",
-				System.getProperty("user.dir") + "\\src/main/resources\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().deleteAllCookies();
-		driver.get("https://parabank.parasoft.com/parabank/index.htm");
+		base = new BaseClass();
+		hp = new HomePage();
 
 	}
 
-	@Test(priority = 0)
-	public void verifyTheHomePageTitle() throws Exception {
+	HomePage hp;
+	BaseClass base;
 
-		hp = new HomePage(driver);
+	Logger logger = LogManager.getLogger(HomePageTestClass.class);
+
+	@BeforeTest
+	public void openBrowser() throws Exception {
+		base.openChromeBrowser();
+	}
+
+	@Test
+	public void verifyTheHomePageTitle() throws Exception {
 
 		String homePageTitle = hp.getHomePageTitle();
 
-		System.out.println(homePageTitle);
+		logger.info(homePageTitle);
 
 		Assert.assertTrue(homePageTitle.contains("Welcome"));
 
 	}
 
-	@Test(priority = 1)
+	@Test
 	public void verifyTheTextOnHomePage() throws Exception {
 
 		String homePageText = hp.verifyTextOnHomePage();
 
-		System.out.println(homePageText);
+		logger.info(homePageText);
 
 		Assert.assertTrue(homePageText.contains("Customer Login"));
-	}
-	
-//	@AfterMethod
-//	public void takeScreenshotOnFailure(ITestResult result)throws Exception{
-//		base.captureScreenshot(result);
-//	}
 
+	}
+
+	@AfterMethod
+	public void takeScreenshotOnFailure(ITestResult result) throws Exception {
+		base.captureScreenshot(result);
+	}
 
 	@AfterTest
-	public void tearDown() {
-		driver.quit();
+	public void closeBrowser() throws Exception {
+		base.closeChromeBrowser();
 	}
 
 }

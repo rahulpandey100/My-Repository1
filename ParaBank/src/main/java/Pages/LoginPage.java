@@ -6,19 +6,40 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.BaseClass;
 
 public class LoginPage extends BaseClass {
 
-	WebDriver driver;
-	LoginPage lp = new LoginPage(driver);
+	By userName = By.xpath("//input[@name='username']");
+	By password = By.xpath("//input[@name='password']");
+	By loginButton = By.xpath(" //input[@value='Log In']");
+	By accountHolderName = By.xpath("//p[@class='smallText']");
+	By openNewAccountLink = By.xpath("//a[text()='Open New Account']");
+	By accountTypeSavings = By.xpath("//select[@id='type']/option[2]");
+	By existingAccountToTransferFunds = By.xpath("//select[@id='fromAccountId']/option[1]");
+	By openNewAccountButton = By.xpath("//div//input[contains(@value,'Open New Account')]");
+	By accountOpeningMessage = By.xpath("//p[text()='Congratulations, your account is now open.']");
+	By newAccountNumber = By.xpath("//a[@id='newAccountId']");
+	By accountsOverviewLink = By.xpath(" //a[text()='Accounts Overview']");
+	By totalAmountWithUser = By.xpath("//b[@class='ng-binding']");
+	By findTransactionsLink = By.xpath("//a[text()='Find Transactions']");
+	By findByDateRangeFrom = By.xpath("//input[@id='criteria.fromDate']");
+	By findByDateRangeTo = By.xpath("//input[@id='criteria.toDate']");
+	By findTransactionsButton = By.xpath(" (//button[@class='button'])[3]");
+	By getTransactionTable = By.tagName("table");
+	By requestLoanLink = By.xpath("//a[text()='Request Loan']");
+	By loanAmount = By.xpath("//input[@id='amount']");
+	By downPayment = By.xpath(" //input[@id='downPayment']");
+	By applyNowButton = By.xpath("//input[@value='Apply Now']");
+	By loanProvider = By.xpath("//table[@class='form']//tr[1]");
+	By loanApprovalConfirmation = By.xpath("//p[text()='Congratulations, your loan has been approved.']");
+	By logOutLink = By.xpath("// *[text()='Log Out']");
 
-	public LoginPage(WebDriver driver) {
+	public LoginPage() {
 
-		this.driver = driver;
-		return;
 	}
 
 	public void login() throws Exception {
@@ -31,69 +52,47 @@ public class LoginPage extends BaseClass {
 
 		pro.load(fis);
 
-		driver.findElement(By.xpath(pro.getProperty("userName"))).sendKeys(pro.getProperty("UserName"));
-		driver.findElement(By.xpath(pro.getProperty("password"))).sendKeys(pro.getProperty("Password"));
+		driver.findElement(userName).sendKeys(pro.getProperty("UserName"));
+		driver.findElement(password).sendKeys(pro.getProperty("Password"));
 
-		lp.clickOnElement(By.xpath(pro.getProperty("loginButton")));
+		clickOnElement(loginButton);
 
 	}
 
 	public String loginSuccessfully() throws Exception {
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
 
-		FileInputStream fis = new FileInputStream(src);
+		return driver.findElement(accountHolderName).getText();
 
-		Properties pro = new Properties();
-
-		pro.load(fis);
-
-		return driver.findElement(By.xpath(pro.getProperty("accountHolderName"))).getText();
 	}
 
 	public String openANewAccount() throws Exception {
 
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
-
-		FileInputStream fis = new FileInputStream(src);
-
-		Properties pro = new Properties();
-
-		pro.load(fis);
-
-		lp.clickOnElement(By.xpath(pro.getProperty("openNewAccountLink")));
-		lp.clickOnElement(By.xpath(pro.getProperty("accountTypeSavings")));
-		lp.clickOnElement(By.xpath(pro.getProperty("existingAccountToTransferFunds")));
-		lp.clickOnElement(By.xpath(pro.getProperty("openNewAccountButton")));
-		return driver.findElement(By.xpath(pro.getProperty("accountOpeningMessage"))).getText();
+		clickOnElement(openNewAccountLink);
+		clickOnElement(accountTypeSavings);
+		clickOnElement(existingAccountToTransferFunds);
+		// clickOnElement(openNewAccountButton);
+		// waitForClickablility(openNewAccountButton, 2);
+		// javaScriptClick(openNewAccountButton);
+		IsDisplayed(openNewAccountButton); 
+		IsEnabled(openNewAccountButton);
+		clickOnElement(openNewAccountButton); 
+			
+//		WebDriverWait wt = new WebDriverWait(driver,30);
+//		return wt.until(ExpectedConditions.visibilityOfElementLocated(accountOpeningMessage)).getText();
+		return driver.findElement(accountOpeningMessage).getText();
 
 	}
 
 	public String getNewAccountNumber() throws Exception {
 
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
-
-		FileInputStream fis = new FileInputStream(src);
-
-		Properties pro = new Properties();
-
-		pro.load(fis);
-
-		return driver.findElement(By.xpath(pro.getProperty("newAccountNumber"))).getText();
+		return driver.findElement(newAccountNumber).getText();
 
 	}
 
 	public String verifyTotalAmountInAccountsOverview() throws Exception {
 
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
-
-		FileInputStream fis = new FileInputStream(src);
-
-		Properties pro = new Properties();
-
-		pro.load(fis);
-
-		lp.clickOnElement(By.xpath(pro.getProperty("accountsOverviewLink")));
-		return driver.findElement(By.xpath(pro.getProperty("totalAmountWithUser"))).getText();
+		clickOnElement(accountsOverviewLink);
+		return driver.findElement(totalAmountWithUser).getText();
 
 	}
 
@@ -106,13 +105,11 @@ public class LoginPage extends BaseClass {
 
 		pro.load(fis);
 
-		lp.clickOnElement(By.xpath(pro.getProperty("findTransactionsLink")));
-		driver.findElement(By.xpath(pro.getProperty("findByDateRangeFrom")))
-				.sendKeys(pro.getProperty("FindByDateRangeFrom"));
-		driver.findElement(By.xpath(pro.getProperty("findByDateRangeTo")))
-				.sendKeys(pro.getProperty("FindByDateRangeTo"));
-		lp.clickOnElement(By.xpath(pro.getProperty("findTransactionsButton")));
-		return driver.findElement(By.xpath(pro.getProperty("getTransactionTable"))).getText();
+		clickOnElement(findTransactionsLink);
+		driver.findElement(findByDateRangeFrom).sendKeys(pro.getProperty("FindByDateRangeFrom"));
+		driver.findElement(findByDateRangeTo).sendKeys(pro.getProperty("FindByDateRangeTo"));
+		clickOnElement(findTransactionsButton);
+		return driver.findElement(getTransactionTable).getText();
 	}
 
 	public String applyForLoan() throws Exception {
@@ -124,38 +121,23 @@ public class LoginPage extends BaseClass {
 
 		pro.load(fis);
 
-		lp.clickOnElement(By.xpath(pro.getProperty("requestLoanLink")));
-		driver.findElement(By.xpath(pro.getProperty("loanAmount"))).sendKeys(pro.getProperty("LoanAmount"));
-		driver.findElement(By.xpath(pro.getProperty("downPayment"))).sendKeys(pro.getProperty("DownPayment"));
-		lp.clickOnElement(By.xpath(pro.getProperty("applyNowButton")));
-		return driver.findElement(By.xpath(pro.getProperty("loanProvider"))).getText();
-		
+		clickOnElement(requestLoanLink);
+		driver.findElement(loanAmount).sendKeys(pro.getProperty("LoanAmount"));
+		driver.findElement(downPayment).sendKeys(pro.getProperty("DownPayment"));
+		clickOnElement(applyNowButton);
+		return driver.findElement(loanProvider).getText();
+
 	}
-	
-	public String loanApprovalConfirmation()throws Exception{
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
 
-		FileInputStream fis = new FileInputStream(src);
+	public String loanApprovalConfirmation() throws Exception {
 
-		Properties pro = new Properties();
+		return driver.findElement(loanApprovalConfirmation).getText();
 
-		pro.load(fis);
-
-		return driver.findElement(By.xpath(pro.getProperty("loanApprovalConfirmation"))).getText();
-		
 	}
-	
-	public void logOut()throws Exception{
-		
-		File src = new File("C:\\Users\\Rahul Pandey\\eclipse-workspace\\ParaBank\\Repository\\TestData.properties");
 
-		FileInputStream fis = new FileInputStream(src);
+	public void logOut() throws Exception {
 
-		Properties pro = new Properties();
-
-		pro.load(fis);
-		
-		clickOnElement(By.xpath(pro.getProperty("logOutLink")));
+		clickOnElement(logOutLink);
 	}
 
 }

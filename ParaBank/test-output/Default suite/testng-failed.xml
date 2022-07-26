@@ -5,17 +5,12 @@
     <classes>
       <class name="test.LoginPageTestClass">
         <methods>
-          <include name="userLoggedIn"/>
           <include name="verifyThatTheNewAccountNumberIsDisplayed"/>
           <include name="verifyTheLoanStatus"/>
-          <include name="verifyThatTheUserCanVerifyForLoan"/>
-          <include name="clickOnLogOutLink"/>
+          <include name="openBrowser"/>
           <include name="verifyThatUserCanOpenANewAccount"/>
           <include name="takeScreenshotOnFailure"/>
-          <include name="getTheTotalTransactionsInADateRange"/>
-          <include name="verifyThatUserLoggedInSuccessfully"/>
-          <include name="setup"/>
-          <include name="verifyTotalAmountWithTheUser"/>
+          <include name="closeBrowser"/>
         </methods>
       </class> <!-- test.LoginPageTestClass -->
     </classes>

@@ -1,15 +1,15 @@
 package test;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestResult;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,35 +18,35 @@ import utilities.BaseClass;
 
 public class RegistrationPageTestClass {
 
-	WebDriver driver;
 	RegistrationPage reg;
 	BaseClass base;
+	
+	Logger logger = LogManager.getLogger("RegistrationPageTestClass");
+
+	public RegistrationPageTestClass() {
+		base = new BaseClass();
+		reg = new RegistrationPage();
+	}
 
 	@BeforeTest
 
-	public void setup() {
-
-		System.setProperty("webdriver.chrome.driver",
-				System.getProperty("user.dir") + "\\src/main/resources\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().deleteAllCookies();
-		driver.get("https://parabank.parasoft.com/parabank/index.htm");
-
+	public void openBrowser() throws Exception {
+		base.openChromeBrowser();
 	}
 
 	@Test(priority = 0)
 	public void clickOnRegister() throws Exception {
 
-		reg.clickOnRegisterOnHomePage();
+		reg = new RegistrationPage();
+
+		reg.clicksOnRegisterOnHomePage();
 
 	}
 
 	@Test(priority = 1)
 	public void verifyThatTheUserIsOnRegistrationPage() throws Exception {
 		String pageTitle = reg.verifyThatTheUserIsOnRegistrationPage();
-
+         logger.info(pageTitle);
 		Assert.assertTrue(pageTitle.contains("ParaBank"));
 	}
 
@@ -72,8 +72,8 @@ public class RegistrationPageTestClass {
 	}
 
 	@AfterTest
-	public void tearDown() {
-		driver.quit();
+	public void closeBrowser() throws Exception {
+		base.closeChromeBrowser();
 	}
 
 }

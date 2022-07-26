@@ -1,12 +1,11 @@
 package test;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,22 +14,20 @@ import utilities.BaseClass;
 
 public class LoginPageTestClass {
 
-	WebDriver driver;
 	LoginPage loginPage;
 	BaseClass base;
 
+	public LoginPageTestClass() {
+		base = new BaseClass();
+		loginPage = new LoginPage();
+	}
+	
+	Logger logger = LogManager.getLogger("LoginPageTestClass");
+
 	@BeforeTest
 
-	public void setup() {
-
-		System.setProperty("webdriver.chrome.driver",
-				System.getProperty("user.dir") + "\\src/main/resources\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().deleteAllCookies();
-		driver.get("https://parabank.parasoft.com/parabank/index.htm");
-
+	public void openBrowser() throws Exception {
+		base.openChromeBrowser();
 	}
 
 	@Test(priority = 0)
@@ -44,7 +41,7 @@ public class LoginPageTestClass {
 
 		String customerName = loginPage.loginSuccessfully();
 
-		System.out.println("Account Holder Name = " + customerName);
+		logger.info("Account Holder Name = " + customerName);
 
 		Assert.assertTrue(customerName.contains("Welcome"));
 	}
@@ -53,7 +50,7 @@ public class LoginPageTestClass {
 	public void verifyThatUserCanOpenANewAccount() throws Exception {
 
 		String accountOpeningMessage = loginPage.openANewAccount();
-		System.out.println(accountOpeningMessage);
+		logger.info(accountOpeningMessage);
 
 		Assert.assertTrue(accountOpeningMessage.contains("Congratulations"));
 	}
@@ -63,7 +60,7 @@ public class LoginPageTestClass {
 
 		String accountNumber = loginPage.getNewAccountNumber();
 
-		System.out.println("New Account Number is :" + accountNumber);
+		logger.info("New Account Number is :" + accountNumber);
 
 	}
 
@@ -71,7 +68,7 @@ public class LoginPageTestClass {
 	public void verifyTotalAmountWithTheUser() throws Exception {
 		String totalAmount = loginPage.verifyTotalAmountInAccountsOverview();
 
-		System.out.println("Total Amount With User :" + totalAmount);
+		logger.info("Total Amount With User :" + totalAmount);
 	}
 
 	@Test(priority = 5)
@@ -79,24 +76,24 @@ public class LoginPageTestClass {
 
 		String transactionTable = loginPage.findTheTotalTransactionsInATimeRange();
 
-		System.out.println("Transaction Table is displayed :" + transactionTable);
+		logger.info("Transaction Table is displayed :" + transactionTable);
 	}
 
 	@Test(priority = 6)
-	public void verifyThatTheUserCanVerifyForLoan() throws Exception {
+	public void verifyThatTheUserCanApplyForLoan() throws Exception {
 		String loanApprovingOrganisation = loginPage.applyForLoan();
-		System.out.println("Loan Provider :" + loanApprovingOrganisation);
+		logger.info("Loan Provider :" + loanApprovingOrganisation);
 
-		Assert.assertTrue(loanApprovingOrganisation.equalsIgnoreCase("Wealth Securities Dynamic Loans (WSDL)"));
+		//Assert.assertTrue(loanApprovingOrganisation.equalsIgnoreCase("Wealth Securities Dynamic Loans (WSDL)"));
 	}
 
 	@Test(priority = 7)
 	public void verifyTheLoanStatus() throws Exception {
-		String loanApprovalMessage = loginPage.loanApprovalConfirmation();
+		String loanStatusMessage = loginPage.loanApprovalConfirmation();
 
-		System.out.println("Loan approval staus :" + loanApprovalMessage);
+		logger.info("Loan approval staus :" + loanStatusMessage);
 
-		Assert.assertTrue(loanApprovalMessage.equalsIgnoreCase("Congratulations, your loan has been approved."));
+		Assert.assertTrue(loanStatusMessage.equalsIgnoreCase("Congratulations, your loan has been approved."));
 	}
 
 	@Test(priority = 8)
@@ -109,8 +106,8 @@ public class LoginPageTestClass {
 		base.captureScreenshot(result);
 	}
 
-	public void tearDown() throws Exception {
-		driver.quit();
-
+	@AfterTest
+	public void closeBrowser() throws Exception {
+		base.closeChromeBrowser();
 	}
 }
